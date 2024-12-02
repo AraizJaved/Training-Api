@@ -70,8 +70,6 @@ namespace Meeting_App.Service
                         throw;
                     }
                 }
-
-
             }
         }
         public bool DeleteFromHRParticepant(ParticipantStatusDto model)
@@ -362,7 +360,7 @@ namespace Meeting_App.Service
                 {
                     try
                     {
-                             var result = db.TrainingWiseReport.Where( x=> x.CreatedBy == userid).ToList();
+                             var result = db.TrainingWiseReport.ToList();
                             return result;
                     }
                     catch (Exception)
