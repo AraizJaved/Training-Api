@@ -50,7 +50,7 @@ namespace Meeting_App.Controllers
                 Guid userid = Guid.Parse(this.GetUserId());
                 var isAdmin = await _cService.CheckRoleExists(userid, "Admin");
 
-                var list = _reportServices.GetReports();
+                var list = _reportServices.GetReports(userid);
 
                 return Ok(UtilService.GetResponse(list));
             }

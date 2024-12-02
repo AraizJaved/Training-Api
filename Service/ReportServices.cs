@@ -40,7 +40,7 @@ namespace Meeting_App.Service
         #endregion
 
 
-        public ReportViewModel GetReports()
+        public ReportViewModel GetReports(Guid userid)
         {
 
             using (var db = new IDDbContext())
@@ -63,7 +63,7 @@ namespace Meeting_App.Service
                         _resultModel.TrainingCategoryWiseReport = new List<TrainingCategoryWiseReport>();
                         _resultModel.TrainingWiseReportList = db.TrainingWiseReport.ToList();
                         _resultModel.TraineeWiseReportList = db.TraineeWiseReport.ToList();
-                        var ExternalParticipantTrainee = db.ExternalParticipantWiseReport.Where(x=>x.ParticipantType== "Trainee").ToList();
+                        var ExternalParticipantTrainee = db.ExternalParticipantWiseReport.Where(x=>x.ParticipantType== "Trainee" ).ToList();
                         foreach (var item in ExternalParticipantTrainee)
                         {
                             TraineeWiseReport model = new TraineeWiseReport();
